@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <!-- custome css -->
+    <style media="screen">
+      nav{
+        margin-bottom: 20px;
+      }
+      .item{
+        padding: 20px;
+      }
+    </style>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <!-- navbar -->
+  <nav>
+    <div class="nav-wrapper teal lighten-2">
+      <a href="#!" class="brand-logo center">TO DO LIST</a>
+    </div>
+  </nav>
+  <!-- navbar -->
+
+  <div class="container">
+    <!-- input form -->
+    <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s10">
+          <input id="todo-input" type="text" class="validate">
+          <label for="remember" data-error="wrong" >To Do List</label>
+        </div>
+        <div class="input-field col s2">
+          <a class="waves-effect waves-light btn" onclick="addToDo()">GO !</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- to do list - list -->
+  <ul id="sortable">
+    <div class="col s12"><h5 class="item z-depth-4 center">Kumpul Berbagi</h5></div>
+    <div class="col s12"><h5 class="item z-depth-4 center">Kumpul Aja</h5></div>
+  </ul>
+
+
+</div> <!-- container -->
+
+  <body>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- jquery ui -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <!-- custome javascript -->
+    <script type="text/javascript">
+    $( function() {
+      $( "#sortable" ).sortable();
+      $( "#sortable" ).disableSelection();
+    } );
+
+    function addToDo(){
+      let data = $('#todo-input').val();
+      $('#sortable').prepend(`<div class="col s12"><h5 class="item z-depth-4 center">${data}</h5></div>`);
+      $('#todo-input').val('');
+    }
+    </script>
+  </body>
+</html>
