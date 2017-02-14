@@ -43,12 +43,10 @@
   </div>
   <!-- to do list - list -->
   <ul id="sortable">
-    <div class="col s12"><h5 class="item z-depth-4 center">Kumpul Berbagi</h5></div>
-    <div class="col s12"><h5 class="item z-depth-4 center">Kumpul Aja</h5></div>
   </ul>
 
-
 </div> <!-- container -->
+
 
   <body>
     <!--Import jQuery before materialize.js-->
@@ -59,16 +57,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <!-- custome javascript -->
     <script type="text/javascript">
-    $( function() {
+    var count = 1;
+
+    $(function(){
       $( "#sortable" ).sortable();
       $( "#sortable" ).disableSelection();
-    } );
+    });
 
     function addToDo(){
       let data = $('#todo-input').val();
-      $('#sortable').prepend(`<div class="col s12"><h5 class="item z-depth-4 center">${data}</h5></div>`);
+      $('#sortable').prepend(`
+        <div class="col s12">
+          <h5 class="item z-depth-4 center" id="${count}">${data}
+            <i class="material-icons blue-text right">delete</i>
+            <i class="material-icons blue-text right" onclick="edit(${count})">mode_edit</i>
+          </h5>
+        </div>`);
       $('#todo-input').val('');
+      count++
     }
+
+    function edit(input){
+      $(`#${input}`).html('<input type="text">')
+    }
+
     </script>
   </body>
 </html>
