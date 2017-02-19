@@ -6,14 +6,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <!-- custome css -->
-    <style media="screen">
-      nav{
-        margin-bottom: 20px;
-      }
-      .item{
-        padding: 20px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
@@ -32,7 +25,7 @@
     <form class="col s12">
       <div class="row">
         <div class="input-field col s10">
-          <input id="todo-input" type="text" class="validate">
+          <input id="todo-input" type="text" class="validate" required>
           <label for="remember" data-error="wrong" >To Do List</label>
         </div>
         <div class="input-field col s2">
@@ -56,31 +49,6 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <!-- custome javascript -->
-    <script type="text/javascript">
-    var count = 1;
-
-    $(function(){
-      $( "#sortable" ).sortable();
-      $( "#sortable" ).disableSelection();
-    });
-
-    function addToDo(){
-      let data = $('#todo-input').val();
-      $('#sortable').prepend(`
-        <div class="col s12">
-          <h5 class="item z-depth-4 center" id="${count}">${data}
-            <i class="material-icons blue-text right">delete</i>
-            <i class="material-icons blue-text right" onclick="edit(${count})">mode_edit</i>
-          </h5>
-        </div>`);
-      $('#todo-input').val('');
-      count++
-    }
-
-    function edit(input){
-      $(`#${input}`).html('<input type="text">')
-    }
-
-    </script>
+    <script src="index.js" charset="utf-8"></script>
   </body>
 </html>
